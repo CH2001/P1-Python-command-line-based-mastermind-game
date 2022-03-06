@@ -1,10 +1,8 @@
-#This is an on-screen mastermind game that is created using python 3 programming language and tested using python IDLE 3.7 and 3.8 
+#Mastermind game
 import random
 
-#Comments are arranged according to the flow of the program
-
 #Function 1
-#2.0 This is a function that genertes 4 random colours from a list of colours (x) and then returns the generated colours in a list 
+#2.0 Genertes 4 random colours from a list of colours (x) and then returns the generated colours in a list 
 def generate_random():
     #Iterative 2 
     for i in range(4):
@@ -13,7 +11,7 @@ def generate_random():
     return list_random 
 
 #Function 2
-#3.0 This is a function that is welcome menu that mainly displays all necessary guidelines to play this game 
+#3.0 Function that is welcome menu that mainly displays all necessary guidelines to play this game 
 def welcome_menu():
     print ('Hope you have fun playing this game, '+str(input_name)+'\n') 
     print ('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> GUIDELINES >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
@@ -44,7 +42,7 @@ def welcome_menu():
     print ('All the best, '+str(input_name)+' in guessing :)\n')
 
 #Function 3
-#5.0 This is a function that allows users to input their guess seperately then combine them into a guess. It also validates wheter input is valid 
+#5.0 Function that allows users to input their guess seperately then combine them into a guess. It also validates wheter input is valid 
 def input_check():
     guess_strdth=1
     print (str(input_name)+', this is your '+str(count_display)+' (st/rd/th) guess')
@@ -67,14 +65,14 @@ def input_check():
     return input_guess
 
 #Function 4 
-#6.0a This is a function that displays some command for users to enter yes or no based on their decision of wanting to change their guess 
+#6.0a Function that displays some command for users to enter yes or no based on their decision of wanting to change their guess 
 def display_confirm():
     print ('\n Confirm answer?')
     print ('.....If the colour sequence displayed above is your intended guess, input y')
     print ('.....If the colour sequence displayed above is not your intended guess (you have accidently make a wrong guess etc..), input n to change it ')
 
 #Function 5 
-#6.0b This is a function that asks wheter user want to change the guess input (for user to enter the data again, rather than class it as an incorrect guess)
+#6.0b Function that asks wheter user want to change the guess input (for user to enter the data again, rather than class it as an incorrect guess)
 def confirmation_answer (confirm_answer):
     #Iterative 4
     while confirm_answer=='Y' or confirm_answer=='Y':
@@ -142,7 +140,7 @@ def confirmation_answer (confirm_answer):
       confirm_answer=input('Your response (y/n): ')
 
 #Function 6
-#7.0 This is a function that helps to checks wheter there is a correct guess or correct guess but at wrong position 
+#7.0 Function that helps to checks wheter there is a correct guess or correct guess but at wrong position 
 def check_answer(input_guess, list_random, correct_colour_correct_position, correct_colour_wrong_position):
     #7.1 The global generated code, (list_random) and input answer which is the user guess (input_guess) is copied to use it locally in this function
     #7.1b This is to ensure that global generated codes remains the same when this function is reused in looping 
