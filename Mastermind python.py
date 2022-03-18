@@ -1,16 +1,13 @@
 #Mastermind game
 import random
 
-#Function 1
 #2.0 Genertes 4 random colours from a list of colours (x) and then returns the generated colours in a list 
 def generate_random():
-    #Iterative 2 
     for i in range(4):
        random_generate=str(random.choice(x)) #2.1 Using random module to generate random 4 colours through looping of 4 times 
        list_random.append(random_generate) #2.2 Append the generated colours into a list 
     return list_random 
 
-#Function 2
 #3.0 Function that is welcome menu that mainly displays all necessary guidelines to play this game 
 def welcome_menu():
     print ('Hope you have fun playing this game, '+str(input_name)+'\n') 
@@ -41,7 +38,6 @@ def welcome_menu():
     print ('Code is being generated')
     print ('All the best, '+str(input_name)+' in guessing :)\n')
 
-#Function 3
 #5.0 Function that allows users to input their guess seperately then combine them into a guess. It also validates wheter input is valid 
 def input_check():
     guess_strdth=1
@@ -49,12 +45,12 @@ def input_check():
     print ('----- Choice of colours in abbreviation: R, G, B, Y, V, I -----')
     
     #5.1 User guess is collected through. User guess is converted to upppercase and combined as one answer
-    for i in range (4):                        #Iterative 3 
+    for i in range (4): 
       input_guess1=input('>>>Enter your guess for '+str(guess_strdth)+' [st/rd/th] colour in abbreviation:')
       convert_uppercase =input_guess1.upper()
       
       #5.2 If user answer is not R, G, B, Y, V or I, user will be prompted to input their answer again
-      if convert_uppercase not in x:          #Decision making 1
+      if convert_uppercase not in x:
           print ('\n Your guess must be either R, G, B, Y, V or I only ')
           input_guess2=input('Enter your guess for '+str(guess_strdth)+' [st/rd/th] colour in abbreviation again:')
           convert_uppercase =input_guess2.upper()
@@ -64,22 +60,18 @@ def input_check():
     print ('| Your guess is: '+input_guess_display+'  |')
     return input_guess
 
-#Function 4 
 #6.0a Function that displays some command for users to enter yes or no based on their decision of wanting to change their guess 
 def display_confirm():
     print ('\n Confirm answer?')
     print ('.....If the colour sequence displayed above is your intended guess, input y')
     print ('.....If the colour sequence displayed above is not your intended guess (you have accidently make a wrong guess etc..), input n to change it ')
 
-#Function 5 
 #6.0b Function that asks wheter user want to change the guess input (for user to enter the data again, rather than class it as an incorrect guess)
 def confirmation_answer (confirm_answer):
-    #Iterative 4
     while confirm_answer=='Y' or confirm_answer=='Y':
       print ('checking answer........................................')
       break
 
-    #Iterative 5
     while confirm_answer=='N' or confirm_answer=='n':
       print ('Guide to change the colour you have input: ')
       print ('Example: BBGY')
@@ -89,7 +81,7 @@ def confirmation_answer (confirm_answer):
       print ('>>>> If you want to change your input of fourth colour which is Y in BBGY -------Enter 3')
       input_append=input('Enter which position of colour to append (0,1,2,3): ') #6.1 Allows users to choose which colour to change by its list index
       str(input_append)
-      if input_append=='0':    #Decision making 2 
+      if input_append=='0':  
         print('----- Choice of colours in abbreviation: R, G, B, Y, V, I -----')
         print('>>>>Append answer for 1st position of colour') #6.2 Tells users the position of colour that is choosen to be changed 
         append_choice=input('Your new guess for 1st position of colour: ') #6.3 User input the colour to change 
@@ -139,7 +131,6 @@ def confirmation_answer (confirm_answer):
       print('.....Enter n if you still want to continue changing your guess')
       confirm_answer=input('Your response (y/n): ')
 
-#Function 6
 #7.0 Function that helps to checks wheter there is a correct guess or correct guess but at wrong position 
 def check_answer(input_guess, list_random, correct_colour_correct_position, correct_colour_wrong_position):
     #7.1 The global generated code, (list_random) and input answer which is the user guess (input_guess) is copied to use it locally in this function
@@ -149,16 +140,16 @@ def check_answer(input_guess, list_random, correct_colour_correct_position, corr
 
     #7.2a The correct colours in correct positions are replaced by '-' to ensure no repetition of indicators.
     #7.2b An accumulator returns the number of correct colours in correct positions at the end after looping 
-    for i in range (4):                #Iterative 6
-        if (input_guess_local[i]==list_random_local[i]):    #Decision making 3
+    for i in range (4):               
+        if (input_guess_local[i]==list_random_local[i]):   
             correct_colour_correct_position+=1
             input_guess_local[i]='-'
             list_random_local[i]='-'
 
     #7.3a The correct colours in wrong positions are replaced by '*' to ensure no repetition of indicators
     #7.3b An accumulator returns the number of correct colours in wrong positions at the end after looping 
-    for i in range (4):                #Iterative 7
-         if input_guess_local[i] in list_random_local and (input_guess_local[i] != list_random_local[i]):   #Decision making 4
+    for i in range (4):               
+         if input_guess_local[i] in list_random_local and (input_guess_local[i] != list_random_local[i]):  
             correct_colour_wrong_position+=1
             position_of_ccwp=list_random_local.index(input_guess_local[i]) #7.4 List index of ccwp in input_guess_local_is identified
             list_random_local[position_of_ccwp]='*'
@@ -173,9 +164,9 @@ def check_answer(input_guess, list_random, correct_colour_correct_position, corr
 
 
 #1.0 All global values are defined in this section which will be used locally in functions or globally 
-x=['R','B','G','Y','V','I'] #List 1: storing available colours in abbreviation 
-list_random=[] #List 2: storing randomly choosen colours in abbreviation 
-input_guess=[] #List 3: storing user input guess 
+x=['R','B','G','Y','V','I'] #Store available colours in abbreviation 
+list_random=[] #Store randomly choosen colours in abbreviation 
+input_guess=[] #Store user input guess 
 input_guess_display=''.join(input_guess) #1.1 Converts lists into a string for displaying user's input 
 turns=10
 count_display=1
@@ -212,7 +203,7 @@ while turns >0:
     check_answer(input_guess, list_random, correct_colour_correct_position, correct_colour_wrong_position)
     
     #8.0 If user answer is correct, user wins the game and the loop breaks
-    if input_guess==list_random:   #Decision making 5
+    if input_guess==list_random:  
          print ('Congratulations, '+str(input_name)+' .You have won the mastermind game with '+str(count)+' counts/ guesses')
          print ('Good game. Hope you have fun')
          print ('Hope you enjoyed this mastermind game!')
@@ -222,7 +213,7 @@ while turns >0:
     input_guess.clear()
     
     #10.0 If user have used up all their turns, user lost the game and the loop breaks 
-    if turns ==0:        #Decision making 6 
+    if turns ==0:        
          print ('Unfortunately, '+str(input_name)+' you lost!')
          print ('You have used up all 10 chances. Game over.')
          list_random_display=''.join(list_random) #10.1a Converts list into a string for displaying the mastermind code 
