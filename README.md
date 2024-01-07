@@ -8,8 +8,7 @@ This is a command line 👾 based mastermind game in Python
 Python | Command line game
 
 ## How to run? 
-**Run locally**
-1. Create and launch new Anaconda Python environment. 
+Download the code on your local machine and run the following in command prompt.
 ```
 python "Mastermind python.py"
 ```
