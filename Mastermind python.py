@@ -1,14 +1,14 @@
 #Mastermind game
 import random
 
-#2.0 Genertes 4 random colours from a list of colours (x) and then returns the generated colours in a list 
+#2.0 Generates 4 random colours from a list of colours (x) and then returns the generated colours in a list 
 def generate_random():
     for i in range(4):
        random_generate=str(random.choice(x)) #2.1 Using random module to generate random 4 colours through looping of 4 times 
        list_random.append(random_generate) #2.2 Append the generated colours into a list 
     return list_random 
 
-#3.0 Function that is welcome menu that mainly displays all necessary guidelines to play this game 
+#3.0 Function that is a welcome menu that mainly displays all necessary guidelines to play this game 
 def welcome_menu():
     print ('Hope you have fun playing this game, '+str(input_name)+'\n') 
     print ('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> GUIDELINES >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
@@ -21,9 +21,9 @@ def welcome_menu():
     print ('     (d) Yellow: Y')
     print ('     (e) Violet: V')
     print ('     (f) Indigo: I')
-    print ('  3. You will need to guess the colour and its sequence correctly. There will be 6 colour choices and 4 colour sequence.')
+    print ('  3. You will need to guess the colour and its sequence correctly. There will be 6 colour choices and 4 colour sequences.')
     print ('  4. You will have 10 chances to guess the correct colour and its position before losing the game.')
-    print ('  5. You will need to input your colour choice seperately by its position. ')
+    print ('  5. You will need to input your colour choice separately by its position. ')
     print ('  6. An indicator will be displayed at the end of the game')
     print ('  7. Example :')
     print ('     Enter your guess for 1st colour in abbreviation: G')
@@ -38,18 +38,18 @@ def welcome_menu():
     print ('Code is being generated')
     print ('All the best, '+str(input_name)+' in guessing :)\n')
 
-#5.0 Function that allows users to input their guess seperately then combine them into a guess. It also validates wheter input is valid 
+#5.0 Function that allows users to input their guesses separately and then combine them into a guess. It also validates whether input is valid 
 def input_check():
     guess_strdth=1
     print (str(input_name)+', this is your '+str(count_display)+' (st/rd/th) guess')
     print ('----- Choice of colours in abbreviation: R, G, B, Y, V, I -----')
     
-    #5.1 User guess is collected through. User guess is converted to upppercase and combined as one answer
+    #5.1 User guess is collected through. User guess is converted to uppercase and combined as one answer
     for i in range (4): 
       input_guess1=input('>>>Enter your guess for '+str(guess_strdth)+' [st/rd/th] colour in abbreviation:')
       convert_uppercase =input_guess1.upper()
       
-      #5.2 If user answer is not R, G, B, Y, V or I, user will be prompted to input their answer again
+      #5.2 If the user answer is not R, G, B, Y, V or I, the user will be prompted to input their answer again
       if convert_uppercase not in x:
           print ('\n Your guess must be either R, G, B, Y, V or I only ')
           input_guess2=input('Enter your guess for '+str(guess_strdth)+' [st/rd/th] colour in abbreviation again:')
@@ -66,7 +66,7 @@ def display_confirm():
     print ('.....If the colour sequence displayed above is your intended guess, input y')
     print ('.....If the colour sequence displayed above is not your intended guess (you have accidently make a wrong guess etc..), input n to change it ')
 
-#6.0b Function that asks wheter user want to change the guess input (for user to enter the data again, rather than class it as an incorrect guess)
+#6.0b Function that asks whether user want to change the guess input (for user to enter the data again, rather than class it as an incorrect guess)
 def confirmation_answer (confirm_answer):
     while confirm_answer=='Y' or confirm_answer=='Y':
       print ('checking answer........................................')
@@ -131,7 +131,7 @@ def confirmation_answer (confirm_answer):
       print('.....Enter n if you still want to continue changing your guess')
       confirm_answer=input('Your response (y/n): ')
 
-#7.0 Function that helps to checks wheter there is a correct guess or correct guess but at wrong position 
+#7.0 Function that helps to check whether there is a correct guess or correct guess but at a wrong position 
 def check_answer(input_guess, list_random, correct_colour_correct_position, correct_colour_wrong_position):
     #7.1 The global generated code, (list_random) and input answer which is the user guess (input_guess) is copied to use it locally in this function
     #7.1b This is to ensure that global generated codes remains the same when this function is reused in looping 
@@ -155,7 +155,7 @@ def check_answer(input_guess, list_random, correct_colour_correct_position, corr
             list_random_local[position_of_ccwp]='*'
             input_guess_local[i]='*'
 
-    #7.5 Similiar to traditional mastermind game, text-based indicator is displayed to user for black peg and white peg
+    #7.5 Similar to traditional mastermind game, a text-based indicator is displayed to the user for black peg and white peg
     print ('\nIndicator (based on your guess(es)): ') 
     print ('  (1) Number of correct colour in correct position (black peg): '+str(correct_colour_correct_position))
     print ('  (2) Number of correct colour but in wrong position (white peg): '+str(correct_colour_wrong_position)+ '\n')
@@ -174,7 +174,7 @@ count=0
 correct_colour_correct_position=0
 correct_colour_wrong_position=0
 
-#2.0 Generate random colours in abbrevation 
+#2.0 Generate random colours in abbreviation 
 generate_random()
 
 #3.0 General welcome display 
@@ -219,5 +219,3 @@ while turns >0:
          list_random_display=''.join(list_random) #10.1a Converts list into a string for displaying the mastermind code 
          print ('The answer is: '+ str(list_random_display)) #10.1b Answer is displayed to user if user lost the game 
          break
-        
-
